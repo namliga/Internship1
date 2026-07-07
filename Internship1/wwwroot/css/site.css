@@ -4779,7 +4779,7 @@ html.reveal-ready .reveal {
     position: relative;
     padding: 150px 0;
     overflow: hidden;
-    background: radial-gradient( circle at 12% 35%, rgba(0, 184, 255, 0.07), transparent 28% ), linear-gradient( 180deg, var(--color-bg), #0d1117 );
+    background: radial-gradient( circle at 12% 28%, rgba(0, 184, 255, 0.07), transparent 30% ), radial-gradient( circle at 88% 72%, rgba(124, 92, 255, 0.06), transparent 28% ), linear-gradient( 180deg, var(--color-bg), #0d1117 );
 }
 
     .management-process-section::before {
@@ -4794,25 +4794,35 @@ html.reveal-ready .reveal {
     }
 
 .management-process-container {
-    display: grid;
-    grid-template-columns: minmax(360px, 0.75fr) minmax(0, 1.25fr);
-    align-items: start;
-    gap: 110px;
+    display: block;
 }
+
+
+/* =========================
+   Management Process Heading
+========================= */
 
 .management-process-heading {
-    position: sticky;
-    top: 140px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    align-items: end;
+    gap: 90px;
+    margin-bottom: 75px;
 }
 
+    .management-process-heading .section-eyebrow {
+        grid-column: 1 / -1;
+    }
+
     .management-process-heading h2 {
-        max-width: 650px;
+        max-width: 790px;
         margin: 0;
         color: var(--color-text);
-        font-size: clamp(3rem, 5vw, 5.5rem);
+        font-size: clamp(3.2rem, 5vw, 5.5rem);
         font-weight: 700;
         line-height: 0.98;
         letter-spacing: -0.055em;
+        text-wrap: balance;
     }
 
         .management-process-heading h2 span {
@@ -4821,13 +4831,697 @@ html.reveal-ready .reveal {
         }
 
     .management-process-heading > p {
-        max-width: 590px;
-        margin: 32px 0 0;
-        color: #b8c0cc;
-        font-size: 1rem;
+        max-width: 610px;
+        margin: 0;
+        color: #c0c7d2;
+        font-size: 1.03rem;
         line-height: 1.85;
     }
 
+
+/* =========================
+   Management Process Grid
+========================= */
+
+.management-process-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.management-process-item {
+    position: relative;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 34px;
+    overflow: hidden;
+    background: linear-gradient( 145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012) ), var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+    .management-process-item::before {
+        content: "";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        right: -210px;
+        bottom: -210px;
+        border-radius: 50%;
+        background: var(--gradient-brand);
+        filter: blur(100px);
+        opacity: 0;
+        transition: opacity 0.45s ease;
+    }
+
+    .management-process-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient( rgba(255, 255, 255, 0.02) 1px, transparent 1px ), linear-gradient( 90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px );
+        background-size: 44px 44px;
+        mask-image: linear-gradient( 135deg, #000, transparent 72% );
+        opacity: 0.55;
+    }
+
+    .management-process-item:hover {
+        transform: translateY(-8px);
+        border-color: rgba(124, 92, 255, 0.38);
+        box-shadow: 0 35px 85px rgba(0, 0, 0, 0.42);
+    }
+
+        .management-process-item:hover::before {
+            opacity: 0.2;
+        }
+
+
+/* =========================
+   Management Process Content
+========================= */
+
+.management-process-number {
+    position: relative;
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    background: linear-gradient( 135deg, rgba(124, 92, 255, 0.95), rgba(0, 184, 255, 0.9) );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 13px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    box-shadow: 0 10px 28px rgba(124, 92, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.management-process-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.management-process-label {
+    display: inline-block;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    color: var(--color-secondary);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.management-process-content h3 {
+    max-width: 570px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(2rem, 2.7vw, 3rem);
+    font-weight: 650;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+}
+
+.management-process-content p {
+    max-width: 590px;
+    margin: auto 0 0;
+    padding-top: 30px;
+    color: #c0c7d2;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   Management Process Responsive
+========================= */
+
+@media (max-width: 991.98px) {
+
+    .management-process-section {
+        padding: 110px 0;
+    }
+
+    .management-process-heading {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-bottom: 60px;
+    }
+
+        .management-process-heading .section-eyebrow {
+            grid-column: auto;
+        }
+
+        .management-process-heading h2 {
+            max-width: 760px;
+        }
+
+        .management-process-heading > p {
+            max-width: 680px;
+        }
+}
+
+@media (max-width: 750px) {
+
+    .management-process-list {
+        grid-template-columns: 1fr;
+    }
+
+    .management-process-item {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .management-process-section {
+        padding: 80px 0;
+    }
+
+    .management-process-heading {
+        margin-bottom: 55px;
+    }
+
+        .management-process-heading h2 {
+            font-size: 2.8rem;
+        }
+
+        .management-process-heading > p {
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+    .management-process-item {
+        min-height: 330px;
+        padding: 28px;
+    }
+
+    .management-process-label {
+        margin-top: 40px;
+    }
+
+    .management-process-content h3 {
+        font-size: 2rem;
+    }
+
+    .management-process-content p {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .management-process-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .management-process-item {
+        min-height: 310px;
+        padding: 25px 22px;
+    }
+
+    .management-process-number {
+        width: 42px;
+        height: 42px;
+    }
+
+    .management-process-content h3 {
+        font-size: 1.85rem;
+    }
+}
+
+/* =========================
+   Management Scope
+========================= */
+
+.management-scope-section {
+    position: relative;
+    padding: 150px 0;
+    overflow: hidden;
+    background: radial-gradient( circle at 88% 30%, rgba(124, 92, 255, 0.08), transparent 30% ), var(--color-bg);
+}
+
+    .management-scope-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min( calc(100% - 40px), var(--container-width) );
+        height: 1px;
+        transform: translateX(-50%);
+        background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.15), transparent );
+    }
+
+.management-scope-heading {
+    margin-bottom: 70px;
+}
+
+.management-scope-heading-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    align-items: end;
+    gap: 80px;
+}
+
+.management-scope-heading h2 {
+    max-width: 800px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+    .management-scope-heading h2 span {
+        display: block;
+        color: var(--color-primary);
+    }
+
+.management-scope-heading-grid > p {
+    max-width: 610px;
+    margin: 0;
+    color: #c0c7d2;
+    font-size: 1.03rem;
+    line-height: 1.85;
+}
+
+/* =========================
+   Management Scope Grid
+========================= */
+
+.management-scope-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.management-scope-card {
+    position: relative;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    overflow: hidden;
+    background: linear-gradient( 145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012) ), var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+    .management-scope-card::before {
+        content: "";
+        position: absolute;
+        width: 270px;
+        height: 270px;
+        right: -180px;
+        bottom: -180px;
+        border-radius: 50%;
+        background: var(--gradient-brand);
+        filter: blur(90px);
+        opacity: 0;
+        transition: opacity 0.45s ease;
+    }
+
+    .management-scope-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient( rgba(255, 255, 255, 0.02) 1px, transparent 1px ), linear-gradient( 90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px );
+        background-size: 42px 42px;
+        mask-image: linear-gradient( 135deg, #000, transparent 72% );
+        opacity: 0.55;
+    }
+
+    .management-scope-card:hover {
+        transform: translateY(-9px);
+        border-color: rgba(124, 92, 255, 0.38);
+        box-shadow: 0 35px 85px rgba(0, 0, 0, 0.42);
+    }
+
+        .management-scope-card:hover::before {
+            opacity: 0.2;
+        }
+
+.management-scope-index {
+    position: relative;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient( 135deg, rgba(124, 92, 255, 0.95), rgba(0, 184, 255, 0.9) );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 13px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow: 0 10px 28px rgba(124, 92, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.management-scope-label {
+    position: relative;
+    z-index: 2;
+    margin-top: 55px;
+    color: var(--color-secondary);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.management-scope-card h3 {
+    position: relative;
+    z-index: 2;
+    margin: 16px 0 0;
+    color: var(--color-text);
+    font-size: clamp(1.7rem, 2.4vw, 2.7rem);
+    font-weight: 650;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.management-scope-card p {
+    position: relative;
+    z-index: 2;
+    margin: auto 0 0;
+    padding-top: 30px;
+    color: #c0c7d2;
+    font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+/* =========================
+   Management Scope Responsive
+========================= */
+
+@media (max-width: 1100px) {
+
+    .management-scope-heading-grid {
+        gap: 60px;
+    }
+
+    .management-scope-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .management-scope-section {
+        padding: 110px 0;
+    }
+
+    .management-scope-heading-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .management-scope-heading h2 {
+        max-width: 760px;
+    }
+
+    .management-scope-heading-grid > p {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .management-scope-section {
+        padding: 80px 0;
+    }
+
+    .management-scope-heading {
+        margin-bottom: 55px;
+    }
+
+        .management-scope-heading h2 {
+            font-size: 2.8rem;
+        }
+
+    .management-scope-heading-grid > p {
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    .management-scope-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .management-scope-card {
+        min-height: 330px;
+        padding: 28px;
+    }
+
+    .management-scope-label {
+        margin-top: 45px;
+    }
+
+    .management-scope-card h3 {
+        font-size: 2.1rem;
+    }
+
+    .management-scope-card p {
+        font-size: 0.94rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .management-scope-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .management-scope-card {
+        min-height: 310px;
+        padding: 25px 22px;
+    }
+
+    .management-scope-index {
+        width: 42px;
+        height: 42px;
+    }
+
+    .management-scope-card h3 {
+        font-size: 1.9rem;
+    }
+}
+
+/* =========================
+   Service CTA
+========================= */
+
+.service-cta-section {
+    position: relative;
+    padding: 30px 0 130px;
+    background: var(--color-bg);
+}
+
+.service-cta {
+    position: relative;
+    min-height: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    padding: 75px;
+    overflow: hidden;
+    background: linear-gradient( 135deg, rgba(124, 92, 255, 0.11), rgba(0, 184, 255, 0.045) ), var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 32px;
+    box-shadow: 0 45px 100px rgba(0, 0, 0, 0.42);
+}
+
+    .service-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient( rgba(255, 255, 255, 0.025) 1px, transparent 1px ), linear-gradient( 90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px );
+        background-size: 55px 55px;
+        mask-image: linear-gradient( to right, #000, transparent 82% );
+    }
+
+.service-cta-glow {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    right: -230px;
+    top: -280px;
+    border-radius: 50%;
+    background: var(--gradient-brand);
+    filter: blur(120px);
+    opacity: 0.22;
+}
+
+.service-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.service-cta-label {
+    color: var(--color-secondary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+.service-cta h2 {
+    margin: 24px 0 0;
+    color: var(--color-text);
+    font-size: clamp(3rem, 5vw, 5.3rem);
+    font-weight: 700;
+    line-height: 0.97;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+    .service-cta h2 span {
+        display: block;
+        color: var(--color-primary);
+    }
+
+.service-cta p {
+    max-width: 660px;
+    margin: 28px 0 0;
+    color: #c0c7d2;
+    font-size: 1.02rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   Service CTA Actions
+========================= */
+
+.service-cta-actions {
+    position: relative;
+    z-index: 2;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.service-cta-primary,
+.service-cta-secondary {
+    min-height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 28px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: transform var(--transition-default), box-shadow var(--transition-default), border-color var(--transition-default), background var(--transition-default);
+}
+
+.service-cta-primary {
+    color: #ffffff;
+    background: var(--gradient-brand);
+    box-shadow: 0 18px 50px rgba(124, 92, 255, 0.27);
+}
+
+    .service-cta-primary:hover {
+        color: #ffffff;
+        transform: translateY(-4px);
+        box-shadow: 0 25px 65px rgba(0, 184, 255, 0.3);
+    }
+
+    .service-cta-primary span {
+        transition: transform var(--transition-default);
+    }
+
+    .service-cta-primary:hover span {
+        transform: translate(4px, -4px);
+    }
+
+.service-cta-secondary {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--color-border);
+}
+
+    .service-cta-secondary:hover {
+        color: var(--color-text);
+        transform: translateY(-4px);
+        border-color: rgba(124, 92, 255, 0.45);
+        background: rgba(124, 92, 255, 0.08);
+    }
+
+
+/* =========================
+   Service CTA Responsive
+========================= */
+
+@media (max-width: 991.98px) {
+
+    .service-cta {
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px;
+    }
+
+    .service-cta-actions {
+        width: min(100%, 360px);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .service-cta-section {
+        padding: 20px 0 80px;
+    }
+
+    .service-cta {
+        gap: 45px;
+        padding: 40px 30px;
+        border-radius: 25px;
+    }
+
+        .service-cta h2 {
+            font-size: 2.8rem;
+        }
+
+        .service-cta p {
+            font-size: 0.98rem;
+        }
+
+    .service-cta-actions {
+        width: 100%;
+    }
+
+    .service-cta-primary,
+    .service-cta-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .service-cta {
+        padding: 36px 22px;
+    }
+
+        .service-cta h2 {
+            font-size: 2.5rem;
+        }
+}
 
 /* =========================
    Mobile Navigation Fix
@@ -4884,6 +5578,9 @@ html.reveal-ready .reveal {
         justify-content: center;
     }
 }
+
+
+
 /* =========================
    Reduced Motion
 ========================= */
