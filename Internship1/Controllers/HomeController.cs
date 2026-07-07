@@ -6,11 +6,19 @@ namespace Internship1.Controllers
 {
     public class HomeController : Controller
     {
+
+        [HttpGet("")]
+        public IActionResult Root()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet("tr")]
         public IActionResult Index()
         {
             return View();
         }
-
+        [HttpGet("tr/hakkimizda")]
         public IActionResult About()
         {
             return View();

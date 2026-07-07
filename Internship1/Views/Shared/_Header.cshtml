@@ -1,14 +1,24 @@
 ﻿<header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg">
+        <div class="site-container navbar-inner">
 
-            <a class="navbar-brand fw-bold"
+            <a class="site-logo"
                asp-controller="Home"
-               asp-action="Index">
-                Internship1
+               asp-action="Index"
+               aria-label="Hancer Group ana sayfa">
+
+                <span class="site-logo-mark">
+                    <span></span>
+                </span>
+
+                <span class="site-logo-text">
+                    HANCER
+                    <strong>GROUP</strong>
+                </span>
+
             </a>
 
-            <button class="navbar-toggler"
+            <button class="navbar-toggler site-menu-toggle"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#mainNavbar"
@@ -16,13 +26,15 @@
                     aria-expanded="false"
                     aria-label="Menüyü aç veya kapat">
 
-                <span class="navbar-toggler-icon"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
 
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
 
-                <ul class="navbar-nav ms-auto align-items-lg-center">
+                <ul class="navbar-nav ms-auto align-items-lg-center site-navigation">
 
                     <li class="nav-item">
                         <a class="nav-link"
@@ -50,7 +62,7 @@
                             Hizmetler
                         </a>
 
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu site-dropdown">
 
                             <li>
                                 <a class="dropdown-item"
@@ -97,6 +109,13 @@
                     </li>
 
                 </ul>
+
+                <a class="header-cta"
+                   asp-controller="Contact"
+                   asp-action="Index">
+                    Projenizi Konuşalım
+                    <span aria-hidden="true">↗</span>
+                </a>
 
             </div>
 
