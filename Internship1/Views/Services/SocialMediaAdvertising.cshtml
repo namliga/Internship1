@@ -228,3 +228,15 @@
     </div>
 
 </section>
+@await Html.PartialAsync(
+    "_ServiceCta",
+    new Internship1.Models.ServiceCtaViewModel
+    {
+        Label = "REKLAM PERFORMANSINIZI GELİŞTİRİN",
+        Title = "Markanız için güçlü bir",
+        HighlightedTitle = "sosyal medya reklam sistemi oluşturalım.",
+        Description = "Reklam hedeflerinizi, hedef kitlenizi ve dijital büyüme beklentilerinizi birlikte değerlendirerek markanız için performans odaklı bir reklam süreci planlayalım.",
+        PrimaryButtonText = "Reklam Projenizi Konuşalım",
+        SecondaryButtonText = "Diğer Hizmetleri İncele"
+    }
+)
