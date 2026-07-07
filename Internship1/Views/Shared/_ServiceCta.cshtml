@@ -1,0 +1,59 @@
+﻿@model Internship1.Models.ServiceCtaViewModel
+
+<section class="service-cta-section">
+
+    <div class="site-container">
+
+        <div class="service-cta reveal">
+
+            <div class="service-cta-glow"></div>
+
+            <div class="service-cta-content">
+
+                <span class="service-cta-label">
+                    @Model.Label
+                </span>
+
+                <h2>
+                    @Model.Title
+
+                    <span>
+                        @Model.HighlightedTitle
+                    </span>
+                </h2>
+
+                <p>
+                    @Model.Description
+                </p>
+
+            </div>
+
+            <div class="service-cta-actions">
+
+                <a asp-controller="Contact"
+                   asp-action="Index"
+                   class="service-cta-primary">
+
+                    @Model.PrimaryButtonText
+
+                    <span aria-hidden="true">
+                        ↗
+                    </span>
+
+                </a>
+
+                <a asp-controller="Services"
+                   asp-action="Index"
+                   class="service-cta-secondary">
+
+                    @Model.SecondaryButtonText
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
