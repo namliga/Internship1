@@ -229,6 +229,73 @@
 
 </section>
 @await Html.PartialAsync(
+    "_ServiceScope",
+    new Internship1.Models.ServiceScopeViewModel
+    {
+        Eyebrow = "REKLAM YÖNETİM KAPSAMI",
+
+        Title = "Reklam kampanyalarının",
+
+        HighlightedTitle = "her aşamasını performans odaklı",
+
+        TitleSuffix = "yönetiyoruz.",
+
+        Description = "Hedef kitle analizinden reklam kreatiflerine, bütçe optimizasyonundan performans raporlamasına kadar dijital reklam sürecini bütüncül bir yaklaşımla yönetiyoruz.",
+
+        Items = new List<Internship1.Models.ServiceScopeItemViewModel>
+        {
+            new()
+            {
+                Number = 1,
+                Label = "HEDEFLEME",
+                Title = "Hedef Kitle Analizi",
+                Description = "Potansiyel müşterilerin demografik özelliklerini, ilgi alanlarını ve dijital davranışlarını değerlendirerek kampanyalar için doğru hedefleme yapısını oluşturuyoruz."
+            },
+
+            new()
+            {
+                Number = 2,
+                Label = "KAMPANYA",
+                Title = "Reklam Kampanyası Planlama",
+                Description = "Marka hedeflerine uygun kampanya amacı, hedefleme yaklaşımı ve reklam yapısını planlayarak kontrollü bir reklam süreci hazırlıyoruz."
+            },
+
+            new()
+            {
+                Number = 3,
+                Label = "YARATICI REKLAM",
+                Title = "Reklam İçeriği ve Kreatif Planlama",
+                Description = "Hedef kitlenin dikkatini çekebilecek reklam görselleri, metinleri ve kreatif yaklaşımları kampanya hedefleri doğrultusunda planlıyoruz."
+            },
+
+            new()
+            {
+                Number = 4,
+                Label = "BÜTÇE",
+                Title = "Reklam Bütçesi Yönetimi",
+                Description = "Reklam bütçesinin kampanyalar ve hedef kitle grupları arasında daha kontrollü kullanılabilmesi için performans verilerini düzenli olarak takip ediyoruz."
+            },
+
+            new()
+            {
+                Number = 5,
+                Label = "OPTİMİZASYON",
+                Title = "Kampanya Optimizasyonu",
+                Description = "Reklam sonuçlarını analiz ederek düşük performanslı alanları belirliyor ve kampanyaların daha verimli ilerlemesi için gerekli optimizasyonları yapıyoruz."
+            },
+
+            new()
+            {
+                Number = 6,
+                Label = "RAPORLAMA",
+                Title = "Performans Analizi ve Raporlama",
+                Description = "Erişim, etkileşim ve kampanya sonuçlarını değerlendirerek reklam performansını anlaşılır veriler ve düzenli raporlarla takip ediyoruz."
+            }
+        }
+    }
+)
+
+@await Html.PartialAsync(
     "_ServiceCta",
     new Internship1.Models.ServiceCtaViewModel
     {

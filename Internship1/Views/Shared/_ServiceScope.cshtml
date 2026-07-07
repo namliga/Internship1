@@ -1,0 +1,70 @@
+﻿@model Internship1.Models.ServiceScopeViewModel
+
+<section class="management-scope-section">
+
+    <div class="site-container">
+
+        <div class="management-scope-heading">
+
+            <div class="section-eyebrow reveal">
+                <span></span>
+                @Model.Eyebrow
+            </div>
+
+            <div class="management-scope-heading-grid">
+
+                <h2 class="reveal">
+                    @Model.Title
+
+                    <span>
+                        @Model.HighlightedTitle
+                    </span>
+
+                    @Model.TitleSuffix
+                </h2>
+
+                <p class="reveal reveal-delay-1">
+                    @Model.Description
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="management-scope-grid">
+
+            @foreach (var item in Model.Items)
+            {
+                var delayClass = (item.Number % 3) switch
+                {
+                    2 => "reveal-delay-1",
+                    0 => "reveal-delay-2",
+                    _ => string.Empty
+                };
+
+                <article class="management-scope-card reveal @delayClass">
+
+                    <span class="management-scope-index">
+                        @item.Number
+                    </span>
+
+                    <span class="management-scope-label">
+                        @item.Label
+                    </span>
+
+                    <h3>
+                        @item.Title
+                    </h3>
+
+                    <p>
+                        @item.Description
+                    </p>
+
+                </article>
+            }
+
+        </div>
+
+    </div>
+
+</section>
