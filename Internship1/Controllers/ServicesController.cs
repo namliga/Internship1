@@ -22,5 +22,23 @@ namespace Internship1.Controllers
             return View();
         }
 
+        [HttpGet("tr/icerik-uretimi")]
+        public IActionResult ContentProduction()
+        {
+            return View();
+        }
+
+        [HttpGet("tr/dijital-strateji")]
+        public IActionResult DigitalStrategy()
+        {
+            return View();
+        }
+
+        [HttpGet("tr/performans-analizi")]
+        public IActionResult PerformanceAnalysis()
+        {
+            return View();
+        }
+
     }
 }
